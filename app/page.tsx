@@ -1,10 +1,10 @@
-import { Layout } from "@/src/components/layout";
-import { UserCardSimple } from "@/src/components/UserCardSimple";
+import { Layout } from "@/components/layout";
+import { UserCardSimple } from "@/components/UserCardSimple";
 
 export default function Home() {
   return (
-    <div className="h-full flex flex-col">
-      <Layout className="h-full mt-4 items-center">
+    <div className="flex h-full flex-col">
+      <Layout className="mt-4 h-full items-center">
         <div>
           <UserCardSimple
             user={{

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Linkedin, Github, Facebook, Instagram } from "lucide-react";
 
 export type UserCardProps = {
@@ -23,25 +22,25 @@ export type UserCardProps = {
 
 export const UserCardSimple = (props: UserCardProps) => {
   return (
-    <div className="rounded-lg lg:w-96 w-80 h-[550px] mt-10 bg-secondary transition-all card-effect hover:scale-105">
-      <div className="flex flex-col bg-secondary rounded-lg relative w-full h-full justify-center overflow-hidden">
-        <div className="relative flex w-full h-full justify-center">
-          <div className="absolute -top-4 w-screen h-full bg-blue-200 -rotate-[15deg]" />
-          <div className="absolute -top-4 w-screen h-full bg-blue-500 -rotate-[10deg]" />
-          <div className="absolute -top-2 w-screen h-full bg-blue-800 rotate-[10deg]" />
-          <div className="absolute -top-5 w-screen h-full bg-primary -rotate-[3deg]" />
+    <div className="card-effect mt-10 h-[550px] w-80 rounded-lg bg-secondary transition-all hover:scale-105 lg:w-96">
+      <div className="relative flex size-full flex-col justify-center overflow-hidden rounded-lg bg-secondary">
+        <div className="relative flex size-full justify-center">
+          <div className="absolute -top-4 h-full w-screen -rotate-[15deg] bg-blue-200" />
+          <div className="absolute -top-4 h-full w-screen -rotate-[10deg] bg-blue-500" />
+          <div className="absolute -top-2 h-full w-screen rotate-[10deg] bg-blue-800" />
+          <div className="absolute -top-5 h-full w-screen -rotate-3 bg-primary" />
           <img
-            className="h-28 w-28 rounded-full absolute inset-0 m-auto border-2 border-secondary shadow-md shadow-primary"
+            className="absolute inset-0 m-auto size-28 rounded-full border-2 border-secondary shadow-md shadow-primary"
             src={props.user.avatar}
             alt="user avatar"
           />
         </div>
-        <div className="flex flex-1 flex-col w-full items-center justify-center lg:mt-5 p-6">
+        <div className="flex w-full flex-1 flex-col items-center justify-center p-6 lg:mt-5">
           <h1 className="text-3xl font-bold text-primary">
             {props.user.firstname} {props.user.lastname}
           </h1>
           <p className="text-xs text-primary">@{props.user.username}</p>
-          <div className="flex gap-4 mt-6 mb-6">
+          <div className="my-6 flex gap-4">
             {props.user.links.linkedin && (
               <a href={props.user.links.linkedin} target="_blank">
                 <Linkedin strokeWidth={2.5} />
@@ -64,15 +63,15 @@ export const UserCardSimple = (props: UserCardProps) => {
             )}
           </div>
           <p
-            className="text-sm text-primary font-semibold text-center"
+            className="text-center text-sm font-semibold text-primary"
             dangerouslySetInnerHTML={{ __html: props.user.description }}
           />
         </div>
-        <div className="flex gap-2 w-full items-center justify-center mt-5 p-6">
-          <button className="flex flex-1 justify-center bg-primary text-primary-foreground p-2 rounded-lg border-2 border-primary font-bold hover:bg-primary/90">
+        <div className="mt-5 flex w-full items-center justify-center gap-2 p-6">
+          <button className="flex flex-1 justify-center rounded-lg border-2 border-primary bg-primary p-2 font-bold text-primary-foreground hover:bg-primary/90">
             Follow
           </button>
-          <button className="flex flex-1 justify-center bg-secondary text-secondary-foreground p-2 rounded-lg border-2 border-primary font-bold hover:bg-secondary/90">
+          <button className="flex flex-1 justify-center rounded-lg border-2 border-primary bg-secondary p-2 font-bold text-secondary-foreground hover:bg-secondary/90">
             Message
           </button>
         </div>
